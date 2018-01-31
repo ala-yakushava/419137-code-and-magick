@@ -9,6 +9,7 @@ var FONT_GAP = 20;
 var BAR_WIDTH = 40;
 var BAR_HEIGHT = 150;
 var BAR_GAP = 50;
+var YOURSELF = 'Вы';
 
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
@@ -45,7 +46,7 @@ window.renderStatistics = function (ctx, names, times) {
   var maxTime = getMaxElement(times);
 
   for (var i = 0; i < names.length; i++) {
-    if (names[i] === 'Вы') {
+    if (names[i] === YOURSELF) {
       ctx.fillStyle = 'rgb(255, 0, 0)';
       ctx.globalAlpha = 1;
     } else {
