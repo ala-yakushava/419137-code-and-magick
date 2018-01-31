@@ -10,21 +10,22 @@ var FIRST_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'К�
 var LAST_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
+var wizardNumber = 4;
 
-function GamePlayer(n, p, r, l) {
-    this.name = n + ' ' + p;
-    this.coatColor = r;
-    this.eyesColor = l;
+var generateRandom = function (array) {
+  return Math.floor(Math.random() * array.length);
 }
 
-var renderCloud = function (array) {
-  return Math.floor(Math.random() * array.length);
+function designWizard(name, family, coat, eyes) {
+    this.name = name + ' ' + family;
+    this.coatColor = coat;
+    this.eyesColor = eyes;
 }
 
 var wizards = [ ];
 
-for (var i = 0; i < 4; i++) {
-  wizards[i] = new GamePlayer(FIRST_NAMES[renderCloud(FIRST_NAMES)], LAST_NAMES[renderCloud(LAST_NAMES)], COAT_COLOR[renderCloud(COAT_COLOR)], EYES_COLOR[renderCloud(EYES_COLOR)]);
+for (var i = 0; i < wizardNumber; i++) {
+  wizards[i] = new designWizard(FIRST_NAMES[generateRandom(FIRST_NAMES)], LAST_NAMES[generateRandom(LAST_NAMES)], COAT_COLOR[generateRandom(COAT_COLOR)], EYES_COLOR[generateRandom(EYES_COLOR)]);
 }
 
 // var wizards = [
