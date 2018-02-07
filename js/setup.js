@@ -55,45 +55,46 @@ var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
 var inputName = setup.querySelector('.setup-user-name');
 
-var onPopupEscPress = function(evt) {
+var onPopupEscPress = function (evt) {
   if (evt.keyCode === ESC_KEYCODE) {
     closePopup();
   }
 };
 
-var openPopup = function() {
+var openPopup = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
 };
 
-var closePopup = function() {
+var closePopup = function () {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener('click', function() {
+setupOpen.addEventListener('click', function () {
   openPopup();
 });
 
-setupOpen.addEventListener('keydown', function(evt) {
+setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-setupClose.addEventListener('click', function() {
+setupClose.addEventListener('click', function () {
   closePopup();
 });
 
-setupClose.addEventListener('keydown', function(evt) {
+setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
 });
 
-inputName.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === ESC_KEYCODE)
+inputName.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
     event.stopPropagation();
+  }
 });
 
 // Изменение настроек цветов персонажа по нажатию.
@@ -124,7 +125,7 @@ var selectCoat = function () {
   }
 
   wizardCoat.style.fill = COAT_COLOR[defaultCoat];
-  setup.querySelector('#coat-color').setAttribute('value', COAT_COLOR[defaultEyes]);
+  setup.querySelector('#coat-color').setAttribute('value', COAT_COLOR[defaultCoat]);
 };
 
 var selectFireball = function () {
@@ -135,7 +136,7 @@ var selectFireball = function () {
   }
 
   fireball.style.background = FIREBALL_COLOR[defaultFireball];
-  setup.querySelector('#fireball-color').setAttribute('value', FIREBALL_COLOR[defaultEyes]);
+  setup.querySelector('#fireball-color').setAttribute('value', FIREBALL_COLOR[defaultFireball]);
 };
 
 wizardEyes.addEventListener('click', function () {
