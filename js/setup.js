@@ -4,6 +4,7 @@ var FIRST_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'К�
 var LAST_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
+var FIREBALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 var WIZARD_NUMBER = 4;
 
 var userDialog = document.querySelector('.setup');
@@ -93,4 +94,55 @@ setupClose.addEventListener('keydown', function(evt) {
 inputName.addEventListener('keydown', function(evt) {
   if (evt.keyCode === ESC_KEYCODE)
     event.stopPropagation();
+});
+
+// Изменение настроек цветов персонажа по нажатию.
+
+var wizardEyes = setup.querySelector('.setup-wizard .wizard-eyes');
+var wizardCoat = setup.querySelector('.setup-wizard .wizard-coat');
+var fireball = setup.querySelector('.setup-fireball-wrap');
+var defaultEyes = 0;
+var defaultCoat = 0;
+var defaultFireball = 0;
+
+var selectEyes = function () {
+  if (defaultEyes < EYES_COLOR.length - 1) {
+    defaultEyes++;
+  } else {
+    defaultEyes = 0;
+  }
+
+  wizardEyes.style.fill = EYES_COLOR[defaultEyes];
+};
+
+var selectCoat = function () {
+  if (defaultCoat < COAT_COLOR.length - 1) {
+    defaultCoat++;
+  } else {
+    defaultCoat = 0;
+  }
+
+  wizardCoat.style.fill = COAT_COLOR[defaultCoat];
+};
+
+var selectFireball = function () {
+  if (defaultFireball < FIREBALL_COLOR.length - 1) {
+    defaultFireball++;
+  } else {
+    defaultFireball = 0;
+  }
+
+  fireball.style.background = FIREBALL_COLOR[defaultFireball];
+};
+
+wizardEyes.addEventListener('click', function () {
+  selectEyes();
+});
+
+wizardCoat.addEventListener('click', function () {
+  selectCoat();
+});
+
+fireball.addEventListener('click', function () {
+  selectFireball();
 });
