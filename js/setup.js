@@ -42,7 +42,6 @@ for (i = 0; i < WIZARD_NUMBER; i++) {
 }
 similarListElement.appendChild(fragment);
 
-userDialog.classList.remove('hidden');
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
 // Открытие/закрытие окна настройки персонажа.
@@ -53,6 +52,7 @@ var ENTER_KEYCODE = 13;
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
+var inputName = setup.querySelector('.setup-user-name');
 
 var onPopupEscPress = function(evt) {
   if (evt.keyCode === ESC_KEYCODE) {
@@ -88,4 +88,9 @@ setupClose.addEventListener('keydown', function(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
+});
+
+inputName.addEventListener('keydown', function(evt) {
+  if (evt.keyCode === ESC_KEYCODE)
+    event.stopPropagation();
 });
