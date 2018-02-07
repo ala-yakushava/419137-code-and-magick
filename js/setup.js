@@ -113,6 +113,7 @@ var selectEyes = function () {
   }
 
   wizardEyes.style.fill = EYES_COLOR[defaultEyes];
+  setup.querySelector('#eyes-color').setAttribute('value', EYES_COLOR[defaultEyes]);
 };
 
 var selectCoat = function () {
@@ -123,6 +124,7 @@ var selectCoat = function () {
   }
 
   wizardCoat.style.fill = COAT_COLOR[defaultCoat];
+  setup.querySelector('#coat-color').setAttribute('value', COAT_COLOR[defaultEyes]);
 };
 
 var selectFireball = function () {
@@ -133,6 +135,7 @@ var selectFireball = function () {
   }
 
   fireball.style.background = FIREBALL_COLOR[defaultFireball];
+  setup.querySelector('#fireball-color').setAttribute('value', FIREBALL_COLOR[defaultEyes]);
 };
 
 wizardEyes.addEventListener('click', function () {
