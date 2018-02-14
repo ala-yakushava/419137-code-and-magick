@@ -93,7 +93,7 @@ setupClose.addEventListener('keydown', function (evt) {
 
 inputName.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ESC_KEYCODE) {
-    event.stopPropagation();
+    evt.stopPropagation();
   }
 });
 
