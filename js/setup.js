@@ -108,7 +108,7 @@ var wizardCoat = setup.querySelector('.setup-wizard .wizard-coat');
 var fireball = setup.querySelector('.setup-fireball-wrap');
 
 var selectColor = function (sample, origin) {
-  return origin < sample.length - 1 ? origin++ : 0;
+  return origin < sample.length - 1 ? origin + 1 : 0;
 };
 
 wizardEye.addEventListener('click', function () {
