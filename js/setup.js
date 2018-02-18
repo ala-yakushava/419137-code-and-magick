@@ -54,10 +54,6 @@
 
   // Изменение настроек цветов персонажа по нажатию.
 
-
-
-
-
   var selectColor = function (sample, origin) {
     return origin < sample.length - 1 ? origin + 1 : 0;
   };
