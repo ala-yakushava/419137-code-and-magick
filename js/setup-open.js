@@ -1,8 +1,7 @@
 'use strict';
-  // Открытие/закрытие окна настройки персонажа.
+// Открытие/закрытие окна настройки персонажа.
 
 (function () {
-
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
