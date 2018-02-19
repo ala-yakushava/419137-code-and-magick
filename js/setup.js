@@ -79,7 +79,7 @@
     setup.querySelector('#fireball-color').value = FIREBALL_COLORS[defaultFireball];
   });
 
-// Перетаскивание предметов
+  // Перетаскивание предметов
 
   var shopElement = document.querySelector('.setup-artifacts-shop');
   var artifactsElement = document.querySelector('.setup-artifacts');

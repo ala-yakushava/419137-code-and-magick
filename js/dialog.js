@@ -50,7 +50,7 @@
     });
   });
 
-// Перетаскивание диалога
+  // Перетаскивание диалога
 
   dialogHandle.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
