@@ -841,6 +841,10 @@ input[type=radio]:checked + .review-mark-label
     background: rgba(0, 0, 0, .1);
 }
 
+.setup-artifacts-reach {
+  outline: 2px dashed red;
+}
+
 .setup-artifacts-cell:last-child
 {
     border-right-width: 1px;
