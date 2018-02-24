@@ -1,8 +1,6 @@
 'use strict';
 
 (function () {
-  var FIRST_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-  var LAST_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
   var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
   var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
   var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
@@ -18,39 +16,28 @@
   var wizardCoat = setup.querySelector('.setup-wizard .wizard-coat');
   var fireball = setup.querySelector('.setup-fireball-wrap');
 
-  var generateRandom = function (sum) {
-    return Math.floor(Math.random() * sum);
-  };
-
-  var DesignWizard = function (name, family, coat, eyes) {
-    this.name = name + ' ' + family;
-    this.coatColor = coat;
-    this.eyesColor = eyes;
-  };
-
-  var wizards = [];
-
-  for (var i = 0; i < WIZARD_NUMBER; i++) {
-    wizards[i] = new DesignWizard(FIRST_NAMES[generateRandom(FIRST_NAMES.length)], LAST_NAMES[generateRandom(LAST_NAMES.length)], COAT_COLORS[generateRandom(COAT_COLORS.length)], EYES_COLORS[generateRandom(EYES_COLORS.length)]);
-  }
-
   var renderWizard = function (wizard) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
     wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
+    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.colorEyes;
 
     return wizardElement;
   };
 
-  var fragment = document.createDocumentFragment();
-  for (i = 0; i < WIZARD_NUMBER; i++) {
-    fragment.appendChild(renderWizard(wizards[i]));
-  }
-  similarListElement.appendChild(fragment);
+  var loadHandler = function (wizards) {
+    var fragment = document.createDocumentFragment();
 
-  setup.querySelector('.setup-similar').classList.remove('hidden');
+    for (var i = 0; i < WIZARD_NUMBER; i++) {
+      fragment.appendChild(renderWizard(wizards[i]));
+    }
+
+    similarListElement.appendChild(fragment);
+    setup.querySelector('.setup-similar').classList.remove('hidden');
+  };
+
+  window.backend.load(loadHandler, window.backend.errorHandler);
 
   // Изменение настроек цветов персонажа по нажатию.
 

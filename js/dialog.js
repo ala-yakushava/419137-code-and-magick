@@ -11,6 +11,7 @@
   var setupClose = setup.querySelector('.setup-close');
   var inputName = setup.querySelector('.setup-user-name');
   var dialogHandle = setup.querySelector('.setup-user-pic');
+  var form = setup.querySelector('.setup-wizard-form');
 
   var openPopup = function () {
     setup.classList.remove('hidden');
@@ -48,6 +49,11 @@
     window.util.isEscEvent(evt, function () {
       evt.stopPropagation();
     });
+  });
+
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), closePopup, window.backend.errorHandler);
+    evt.preventDefault();
   });
 
   // Перетаскивание диалога
